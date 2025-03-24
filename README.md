@@ -37,12 +37,12 @@ pip install transformers datasets torch scikit-learn pandas tqdm seaborn matplot
 
 ### 1. Clone the Repo
 ```bash
-git clone https://github.com/yourusername/sentiment-bert-finetune.git
+git clone https://github.com/HYMH92/sentiment-bert-finetune.git
 cd sentiment-bert-finetune
 ```
 
 ### 2. Prepare Data
-Ensure `train.csv` and `dev.csv` have two columns:
+Ensure `train.csv` and `dev.csv` have two columns. for example (should get more data ofcourse):
 ```
 text,label
 "I love this product!",1
@@ -61,14 +61,7 @@ Use the `utils_plots.py` functions to:
 - Show confusion matrix
 - Export metrics to CSV
 
-### 5. Evaluate Model
-Evaluate on the dev set before and after training:
-```python
-from utils_plots import plot_confusion_matrix
-plot_confusion_matrix(true_labels, predicted_labels)
-```
-
-### 6. Predict New Sentences
+### 5. Predict New Sentences
 ```python
 def predict_sentiment(text):
     inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True, max_length=512)
